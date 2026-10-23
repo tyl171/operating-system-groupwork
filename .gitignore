@@ -1,0 +1,38 @@
+# ---- 编译产物 ----
+build/
+*.o
+*.out
+*.so
+*.a
+*.mod
+*.ko
+
+# ---- 磁盘镜像 / 虚拟机 ----
+*.img
+*.qcow2
+*.vmdk
+*.iso
+*.vdi
+
+# ---- 大数据与 trace ----
+data/
+*.trace
+*.tar.gz
+*.zip
+
+# ---- 压缩日志（小日志要提交，课程要求可追溯）----
+*.log.gz
+
+# ---- 凭证与密钥 ----
+.env
+credentials*
+*.key
+*.pem
+*.p12
+
+# ---- 编辑器/系统 ----
+.vscode/
+.idea/
+*.swp
+.DS_Store
+Thumbs.db
