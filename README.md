@@ -1,60 +1,104 @@
-# operating-system-groupwork
+# CS340 Reproduction — Period (ICSE 2022)
 
-操作系统课程小组作业仓库。
+Course project: **Research Paper Replication**, CS340 Operating Systems (2026–2027).
 
-## 项目简介
+---
 
-> 待补充：项目选题、目标与验收标准。
+## 1. Purpose
 
-根据仓库现有目录与 `.gitignore` 规则，本仓库围绕 **LLVM 插桩** 与 **AFL / ConFuzzer 模糊测试** 展开，涉及以下部分（由 `.gitignore` 推断，待确认）：
+This repository reproduces the main claims of:
 
-- `tool/AFL-2.52b/`：AFL 2.52b 源码，构建产物不入库
-- `tool/ConFuzzer/`：并发模糊测试工具（LLVM mode + build 产物）
-- `test/uaf/`、`test/transfer/`：测试用例
-- `evaluation/BUILD/`、`evaluation/FUZZ/`：评测构建与 fuzz 结果
-- `DBDS/`：示例脚本
+> **Controlled Concurrency Testing via Periodical Scheduling**
+> Cheng Wen, Mengda He, Bohao Wu, Zhiwu Xu, Shengchao Qin — ICSE 2022
 
-## 环境要求
+- Paper: <https://wcventure.github.io/pdf/ICSE2022_PERIOD.pdf>
+- DOI: 10.1145/3510003.3510178
+- Upstream artifact: <https://github.com/wcventure/PERIOD> (MIT License)
 
-> 待补充：LLVM / clang 版本、Python 版本、构建与运行命令。
+PERIOD is a controlled concurrency testing (CCT) tool. It models the execution
+of a concurrent program as **periodical execution**: context switches become
+period switches, implemented with the Linux `SCHED_DEADLINE` policy, so no
+preemption or sleep delay is needed and threads may still run in parallel
+within a period.
 
-## 开发约定
+**Claims tested:**
 
-1. **提交信息必须以「学号 姓名」开头**，例如：
+| ID | Claim | Evidence in paper |
+|----|-------|-------------------|
+| **C1** | PERIOD detects all 10 buggy programs in the CVE benchmark, whereas existing CCT techniques detect only 7. | Table 1 |
+| **C2** | PERIOD incurs a 2–30× runtime slowdown relative to native execution, well below the 10–500× of IPB/IDB/PCT. | Figure 7 |
 
-   ```
-   1240007426 田一麟 完善 README
-   ```
+---
 
-2. 主分支为 `main`，请勿直接提交到 `main`。
+## 2. Environment
 
-3. 功能开发新建分支，完成后提 Pull Request：
+### 2.1 Paper's setup (ICSE 2022, §4.1.3)
 
-   ```bash
-   git checkout -b feature/模块名
-   git add .
-   git commit -m "学号 姓名 做了什么"
-   git push -u origin feature/模块名
-   ```
+| Component | Value |
+|-----------|-------|
+| CPU | Intel Xeon Silver 4214 (12 cores / 24 threads) |
+| OS | Ubuntu 18.04 |
+| GCC | 7.5 |
+| LLVM | 10.0 |
+| Schedule depth | 5 (CVE benchmark) / 3 (SCTBench) |
+| Schedule budget | 10,000 schedules per invocation |
 
-4. 编译产物、trace、评测数据等大文件不入库，忽略规则见 `.gitignore`。
+### 2.2 Our setup
 
-## 小组成员
+| Component | Value |
+|-----------|-------|
+| Host | Windows 11 + VMware Workstation 26 |
+| Guest OS | Ubuntu 26.04 LTS |
+| Kernel | 7.0.0-43-generic |
+| CPU | 8 vCPU (1 socket × 8 cores, no SMT) |
+| Memory | 16 GB |
+| Docker | 29.1.3 (`docker.io` 29.1.3-0ubuntu4.1) |
+| PERIOD image | `wcventure/period:stable` |
+| Image digest | `sha256:8f47d8b9148f2db579627842026e722d0f205ddeab13e70ee41a8df3dbd59fbc` |
+| Side-channel mitigations | enabled (host default) |
 
-| 学号 | 姓名 | GitHub | 负责模块 |
-| --- | --- | --- | --- |
-| 1240007426 | 田一麟 | @tyl171 | 待补充 |
-| 待补充 | 待补充 | 待补充 | 待补充 |
-| 待补充 | 待补充 | 待补充 | 待补充 |
-| 待补充 | 待补充 | 待补充 | 待补充 |
+All differences from the paper are listed in [`docs/deviations.md`](docs/deviations.md).
 
-## 常见问题：GitHub 连不上
+---
 
-国内直连 `github.com` 常出现 `Connection reset`。可在本仓库内配置代理：
+## 3. Installation
+
+Full procedure: **[INSTALL.md](INSTALL.md)** — includes the network workaround
+we needed because `registry-1.docker.io` is unreachable from our testbed.
+
+Short version:
 
 ```bash
-git config http.proxy http://127.0.0.1:7890
-git config http.sslBackend openssl
+sudo apt install -y docker.io
+sudo docker pull wcventure/period:stable
+sudo docker tag wcventure/period:stable period:latest
 ```
 
-`7890` 为 Clash / FlClash 等工具的默认混合代理端口，按自己实际端口调整。
+---
+
+## 4. Testing
+
+Full procedure: **[TEST.md](TEST.md)**.
+
+Short version:
+
+```bash
+sudo docker run --privileged -it period:latest /bin/bash
+# inside the container:
+cd /workdir/PERIOD/test/doubleFree
+./cleanDIR.sh && ./build.sh
+$ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 ./df
+```
+
+Expected final lines:
+
+```
+Total Error Interleavings: 4
+Total Timeouts Interleavings: 0
+```
+
+> `[Error Found]` lines are the expected result, not failures — PERIOD is a
+> bug-finding tool and `test/doubleFree` intentionally contains a double-free bug.
+
+---
+
