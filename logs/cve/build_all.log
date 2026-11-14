@@ -1,0 +1,438 @@
+Installation completed. Everything's fine!
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547
++ ./cleanDIR.sh
++ clang++ -g -emit-llvm -c ./2009-3547.cpp -o 2009-3547.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2009-3547
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2009-3547
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  30K Nov 14 08:25 2009-3547.bc
+-rw-rw-r-- 1 root root 1.6K Jan 16  2022 2009-3547.cpp
+-rw-r--r-- 1 root root  136 Nov 14 08:25 ConConfig.2009-3547
+-rw-r--r-- 1 root root 1.2K Nov 14 08:25 mempair.2009-3547
+-rw-r--r-- 1 root root  13K Nov 14 08:25 mempair.2009-3547.npz
+-rw-r--r-- 1 root root 2.2K Nov 14 08:25 mssa.2009-3547
+-rw-r--r-- 1 root root 3.1K Nov 14 08:25 so.2009-3547
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547/ConConfig.2009-3547
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547/ConConfig.2009-3547
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2009-3547.cpp -o 2009-3547 -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547/ConConfig.2009-3547
+[DEBUG]
+[DEBUG] Instrumentation for 2009-3547.cpp:37
+[DEBUG] Instrumentation for 2009-3547.cpp:32
+[DEBUG] Instrumentation for 2009-3547.cpp:41
+[DEBUG] Instrumentation for 2009-3547.cpp:43
+[DEBUG] Instrumentation for 2009-3547.cpp:52
+[DEBUG] Instrumentation for 2009-3547.cpp:53
+[DEBUG] Instrumentation for 2009-3547.cpp:19
+[DEBUG] Instrumentation for 2009-3547.cpp:20
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183
++ ./cleanDIR.sh
++ clang++ -g -emit-llvm -c ./2011-2183.cpp -o 2011-2183.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2011-2183
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2011-2183
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  23K Nov 14 08:25 2011-2183.bc
+-rw-rw-r-- 1 root root 8.3K Jan 16  2022 2011-2183.cpp
+-rw-r--r-- 1 root root  589 Nov 14 08:25 ConConfig.2011-2183
+-rw-r--r-- 1 root root 9.4K Nov 14 08:25 mempair.2011-2183
+-rw-r--r-- 1 root root  94K Nov 14 08:25 mempair.2011-2183.npz
+-rw-r--r-- 1 root root 6.8K Nov 14 08:25 mssa.2011-2183
+-rw-r--r-- 1 root root  12K Nov 14 08:25 so.2011-2183
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183/ConConfig.2011-2183
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183/ConConfig.2011-2183
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2011-2183.cpp -o 2011-2183 -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183/ConConfig.2011-2183
+[DEBUG]
+[DEBUG] Instrumentation for 2011-2183.cpp:263
+[DEBUG] Instrumentation for 2011-2183.cpp:265
+[DEBUG] Instrumentation for 2011-2183.cpp:266
+[DEBUG] Instrumentation for 2011-2183.cpp:275
+[DEBUG] Instrumentation for 2011-2183.cpp:198
+[DEBUG] Instrumentation for 2011-2183.cpp:198
+[DEBUG] Instrumentation for 2011-2183.cpp:198
+[DEBUG] Instrumentation for 2011-2183.cpp:198
+[DEBUG] Instrumentation for 2011-2183.cpp:198
+[DEBUG] Instrumentation for 2011-2183.cpp:198
+[DEBUG] Instrumentation for 2011-2183.cpp:145
+[DEBUG] Instrumentation for 2011-2183.cpp:146
+[DEBUG] Instrumentation for 2011-2183.cpp:112
+[DEBUG] Instrumentation for 2011-2183.cpp:113
+[DEBUG] Instrumentation for 2011-2183.cpp:114
+[DEBUG] Instrumentation for 2011-2183.cpp:213
+[DEBUG] Instrumentation for 2011-2183.cpp:215
+[DEBUG] Instrumentation for 2011-2183.cpp:216
+[DEBUG] Instrumentation for 2011-2183.cpp:217
+[DEBUG] Instrumentation for 2011-2183.cpp:220
+[DEBUG] Instrumentation for 2011-2183.cpp:221
+[DEBUG] Instrumentation for 2011-2183.cpp:224
+[DEBUG] Instrumentation for 2011-2183.cpp:229
+[DEBUG] Instrumentation for 2011-2183.cpp:230
+[DEBUG] Instrumentation for 2011-2183.cpp:233
+[DEBUG] Instrumentation for 2011-2183.cpp:250
+[DEBUG] Instrumentation for 2011-2183.cpp:254
+[DEBUG] Instrumentation for 2011-2183.cpp:107
+[DEBUG] Instrumentation for 2011-2183.cpp:135
+[DEBUG] Instrumentation for 2011-2183.cpp:136
+[DEBUG] Instrumentation for 2011-2183.cpp:139
+[DEBUG] Instrumentation for 2011-2183.cpp:101
+[DEBUG] Instrumentation for 2011-2183.cpp:102
+[DEBUG] Instrumentation for 2011-2183.cpp:84
+[DEBUG] Instrumentation for 2011-2183.cpp:93
+[DEBUG] Instrumentation for 2011-2183.cpp:94
+[DEBUG] Instrumentation for 2011-2183.cpp:95
+[DEBUG] Instrumentation for 2011-2183.cpp:96
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792
++ ./cleanDIR.sh
++ clang++ -g -emit-llvm -c ./2013-1792.cpp -o 2013-1792.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2013-1792
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2013-1792
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  21K Nov 14 08:25 2013-1792.bc
+-rw-rw-r-- 1 root root 6.3K Jan 16  2022 2013-1792.cpp
+-rw-r--r-- 1 root root  160 Nov 14 08:25 ConConfig.2013-1792
+-rw-r--r-- 1 root root  466 Nov 14 08:25 mempair.2013-1792
+-rw-r--r-- 1 root root 8.6K Nov 14 08:25 mempair.2013-1792.npz
+-rw-r--r-- 1 root root 3.1K Nov 14 08:25 mssa.2013-1792
+-rw-r--r-- 1 root root 5.6K Nov 14 08:25 so.2013-1792
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792/ConConfig.2013-1792
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792/ConConfig.2013-1792
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2013-1792.cpp -o 2013-1792 -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792/ConConfig.2013-1792
+[DEBUG]
+[DEBUG] Instrumentation for 2013-1792.cpp:114
+[DEBUG] Instrumentation for 2013-1792.cpp:119
+[DEBUG] Instrumentation for 2013-1792.cpp:122
+[DEBUG] Instrumentation for 2013-1792.cpp:130
+[DEBUG] Instrumentation for 2013-1792.cpp:131
+[DEBUG] Instrumentation for 2013-1792.cpp:166
+[DEBUG] Instrumentation for 2013-1792.cpp:173
+[DEBUG] Instrumentation for 2013-1792.cpp:92
+[DEBUG] Instrumentation for 2013-1792.cpp:72
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550
++ ./cleanDIR.sh
++ clang++ -g -emit-llvm -c ./2015-7550.cpp -o 2015-7550.bc
+./2015-7550.cpp:10:9: warning: 'EOPNOTSUPP' macro redefined [-Wmacro-redefined]
+#define EOPNOTSUPP      45
+        ^
+/usr/include/asm-generic/errno.h:78:9: note: previous definition is here
+#define EOPNOTSUPP      95      /* Operation not supported on transport endpoint */
+        ^
+./2015-7550.cpp:11:9: warning: 'ENOKEY' macro redefined [-Wmacro-redefined]
+#define ENOKEY          132
+        ^
+/usr/include/asm-generic/errno.h:110:9: note: previous definition is here
+#define ENOKEY          126     /* Required key not available */
+        ^
+./2015-7550.cpp:12:9: warning: 'EKEYEXPIRED' macro redefined [-Wmacro-redefined]
+#define EKEYEXPIRED     133
+        ^
+/usr/include/asm-generic/errno.h:111:9: note: previous definition is here
+#define EKEYEXPIRED     127     /* Key has expired */
+        ^
+./2015-7550.cpp:13:9: warning: 'EKEYREVOKED' macro redefined [-Wmacro-redefined]
+#define EKEYREVOKED     134
+        ^
+/usr/include/asm-generic/errno.h:112:9: note: previous definition is here
+#define EKEYREVOKED     128     /* Key has been revoked */
+        ^
+4 warnings generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2015-7550
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2015-7550
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  30K Nov 14 08:25 2015-7550.bc
+-rw-rw-r-- 1 root root 2.7K Jan 16  2022 2015-7550.cpp
+-rw-r--r-- 1 root root  102 Nov 14 08:25 ConConfig.2015-7550
+-rw-r--r-- 1 root root  377 Nov 14 08:25 mempair.2015-7550
+-rw-r--r-- 1 root root 6.1K Nov 14 08:25 mempair.2015-7550.npz
+-rw-r--r-- 1 root root 1.9K Nov 14 08:25 mssa.2015-7550
+-rw-r--r-- 1 root root 1.9K Nov 14 08:25 so.2015-7550
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550/ConConfig.2015-7550
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550/ConConfig.2015-7550
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2015-7550.cpp -o 2015-7550 -lpthread -ldl
+./2015-7550.cpp:10:9: warning: 'EOPNOTSUPP' macro redefined [-Wmacro-redefined]
+#define EOPNOTSUPP      45
+        ^
+/usr/include/asm-generic/errno.h:78:9: note: previous definition is here
+#define EOPNOTSUPP      95      /* Operation not supported on transport endpoint */
+        ^
+./2015-7550.cpp:11:9: warning: 'ENOKEY' macro redefined [-Wmacro-redefined]
+#define ENOKEY          132
+        ^
+/usr/include/asm-generic/errno.h:110:9: note: previous definition is here
+#define ENOKEY          126     /* Required key not available */
+        ^
+./2015-7550.cpp:12:9: warning: 'EKEYEXPIRED' macro redefined [-Wmacro-redefined]
+#define EKEYEXPIRED     133
+        ^
+/usr/include/asm-generic/errno.h:111:9: note: previous definition is here
+#define EKEYEXPIRED     127     /* Key has expired */
+        ^
+./2015-7550.cpp:13:9: warning: 'EKEYREVOKED' macro redefined [-Wmacro-redefined]
+#define EKEYREVOKED     134
+        ^
+/usr/include/asm-generic/errno.h:112:9: note: previous definition is here
+#define EKEYREVOKED     128     /* Key has been revoked */
+        ^
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550/ConConfig.2015-7550
+[DEBUG]
+[DEBUG] Instrumentation for 2015-7550.cpp:33
+[DEBUG] Instrumentation for 2015-7550.cpp:61
+[DEBUG] Instrumentation for 2015-7550.cpp:49
+[DEBUG] Instrumentation for 2015-7550.cpp:71
+[DEBUG] Instrumentation for 2015-7550.cpp:76
+[DEBUG] Instrumentation for 2015-7550.cpp:77
+4 warnings generated.
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./2016-1972.c -o 2016-1972.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2016-1972
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2016-1972
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root 9.0K Nov 14 08:25 2016-1972.bc
+-rw-rw-r-- 1 root root 2.1K Jan 16  2022 2016-1972.c
+-rw-r--r-- 1 root root  135 Nov 14 08:25 ConConfig.2016-1972
+-rw-r--r-- 1 root root  642 Nov 14 08:25 mempair.2016-1972
+-rw-r--r-- 1 root root 7.6K Nov 14 08:25 mempair.2016-1972.npz
+-rw-r--r-- 1 root root 2.1K Nov 14 08:25 mssa.2016-1972
+-rw-r--r-- 1 root root 1.6K Nov 14 08:25 so.2016-1972
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972/ConConfig.2016-1972
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972/ConConfig.2016-1972
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast -g -fsanitize=address -c ./2016-1972.c -o 2016-1972.o
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972/ConConfig.2016-1972
+[DEBUG]
+[DEBUG] Instrumentation for 2016-1972.c:20
+[DEBUG] Instrumentation for 2016-1972.c:25
+[DEBUG] Instrumentation for 2016-1972.c:30
+[DEBUG] Instrumentation for 2016-1972.c:43
+[DEBUG] Instrumentation for 2016-1972.c:47
+[DEBUG] Instrumentation for 2016-1972.c:50
+[DEBUG] Instrumentation for 2016-1972.c:52
+[DEBUG] Instrumentation for 2016-1972.c:62
+[DEBUG] Instrumentation for 2016-1972.c:64
++ clang++ ./2016-1972.o /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/DBDSFunction.o -g -o 2016-1972 -lpthread -fsanitize=address -ldl
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973
++ ./cleanDIR.sh
++ clang++ -g -emit-llvm -c ./2016-1973.cpp -o 2016-1973.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2016-1973
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2016-1973
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root 104K Nov 14 08:25 2016-1973.bc
+-rw-rw-r-- 1 root root 5.6K Jan 16  2022 2016-1973.cpp
+-rw-r--r-- 1 root root   69 Nov 14 08:25 ConConfig.2016-1973
+-rw-r--r-- 1 root root  675 Nov 14 08:25 mempair.2016-1973
+-rw-r--r-- 1 root root 9.4K Nov 14 08:25 mempair.2016-1973.npz
+-rw-r--r-- 1 root root 7.3K Nov 14 08:25 mssa.2016-1973
+-rw-r--r-- 1 root root 8.1K Nov 14 08:25 so.2016-1973
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973/ConConfig.2016-1973
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973/ConConfig.2016-1973
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2016-1973.cpp -o 2016-1973 -lpthread -ldl
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973/ConConfig.2016-1973
+[DEBUG]
+[DEBUG] Instrumentation for 2016-1973.cpp:26
+[DEBUG] Instrumentation for 2016-1973.cpp:30
+[DEBUG] Instrumentation for 2016-1973.cpp:146
+[DEBUG] Instrumentation for 2016-1973.cpp:35
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./2016-7911.cpp -o 2016-7911.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2016-7911
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2016-7911
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  12K Nov 14 08:25 2016-7911.bc
+-rw-rw-r-- 1 root root 2.5K Jan 16  2022 2016-7911.cpp
+-rw-r--r-- 1 root root  119 Nov 14 08:25 ConConfig.2016-7911
+-rw-r--r-- 1 root root  392 Nov 14 08:25 mempair.2016-7911
+-rw-r--r-- 1 root root 7.6K Nov 14 08:25 mempair.2016-7911.npz
+-rw-r--r-- 1 root root 1.9K Nov 14 08:25 mssa.2016-7911
+-rw-r--r-- 1 root root 2.8K Nov 14 08:25 so.2016-7911
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911/ConConfig.2016-7911
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911/ConConfig.2016-7911
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2016-7911.cpp -o 2016-7911 -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911/ConConfig.2016-7911
+[DEBUG]
+[DEBUG] Instrumentation for 2016-7911.cpp:79
+[DEBUG] Instrumentation for 2016-7911.cpp:80
+[DEBUG] Instrumentation for 2016-7911.cpp:81
+[DEBUG] Instrumentation for 2016-7911.cpp:45
+[DEBUG] Instrumentation for 2016-7911.cpp:65
+[DEBUG] Instrumentation for 2016-7911.cpp:67
+[DEBUG] Instrumentation for 2016-7911.cpp:68
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./2016-9806.cpp -o 2016-9806.bc
+./2016-9806.cpp:11:9: warning: 'offsetof' macro redefined [-Wmacro-redefined]
+#define offsetof(TYPE,MEMBER) ((int) &((TYPE *)0)->MEMBER)
+        ^
+/workdir/PERIOD/clang+llvm/lib/clang/10.0.0/include/stddef.h:104:9: note: previous definition is here
+#define offsetof(t, d) __builtin_offsetof(t, d)
+        ^
+1 warning generated.
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2016-9806
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2016-9806
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  31K Nov 14 08:25 2016-9806.bc
+-rw-rw-r-- 1 root root 2.0K Jan 16  2022 2016-9806.cpp
+-rw-r--r-- 1 root root   85 Nov 14 08:25 ConConfig.2016-9806
+-rw-r--r-- 1 root root  325 Nov 14 08:25 mempair.2016-9806
+-rw-r--r-- 1 root root 4.9K Nov 14 08:25 mempair.2016-9806.npz
+-rw-r--r-- 1 root root 1.4K Nov 14 08:25 mssa.2016-9806
+-rw-r--r-- 1 root root 1.4K Nov 14 08:25 so.2016-9806
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806/ConConfig.2016-9806
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806/ConConfig.2016-9806
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2016-9806.cpp -o 2016-9806 -lpthread -ldl
+./2016-9806.cpp:11:9: warning: 'offsetof' macro redefined [-Wmacro-redefined]
+#define offsetof(TYPE,MEMBER) ((int) &((TYPE *)0)->MEMBER)
+        ^
+/workdir/PERIOD/clang+llvm/lib/clang/10.0.0/include/stddef.h:104:9: note: previous definition is here
+#define offsetof(t, d) __builtin_offsetof(t, d)
+        ^
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806/ConConfig.2016-9806
+[DEBUG]
+[DEBUG] Instrumentation for 2016-9806.cpp:62
+[DEBUG] Instrumentation for 2016-9806.cpp:68
+[DEBUG] Instrumentation for 2016-9806.cpp:69
+[DEBUG] Instrumentation for 2016-9806.cpp:72
+[DEBUG] Instrumentation for 2016-9806.cpp:77
+1 warning generated.
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./2017-15265.cpp -o 2017-15265.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2017-15265
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2017-15265
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  20K Nov 14 08:25 2017-15265.bc
+-rw-rw-r-- 1 root root 6.2K Jan 16  2022 2017-15265.cpp
+-rw-r--r-- 1 root root  300 Nov 14 08:25 ConConfig.2017-15265
+-rw-r--r-- 1 root root 1.8K Nov 14 08:25 mempair.2017-15265
+-rw-r--r-- 1 root root  32K Nov 14 08:25 mempair.2017-15265.npz
+-rw-r--r-- 1 root root 4.6K Nov 14 08:25 mssa.2017-15265
+-rw-r--r-- 1 root root  14K Nov 14 08:25 so.2017-15265
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265/ConConfig.2017-15265
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265/ConConfig.2017-15265
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2017-15265.cpp -o 2017-15265 -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265/ConConfig.2017-15265
+[DEBUG]
+[DEBUG] Instrumentation for 2017-15265.cpp:105
+[DEBUG] Instrumentation for 2017-15265.cpp:120
+[DEBUG] Instrumentation for 2017-15265.cpp:121
+[DEBUG] Instrumentation for 2017-15265.cpp:127
+[DEBUG] Instrumentation for 2017-15265.cpp:128
+[DEBUG] Instrumentation for 2017-15265.cpp:137
+[DEBUG] Instrumentation for 2017-15265.cpp:138
+[DEBUG] Instrumentation for 2017-15265.cpp:85
+[DEBUG] Instrumentation for 2017-15265.cpp:191
+[DEBUG] Instrumentation for 2017-15265.cpp:192
+[DEBUG] Instrumentation for 2017-15265.cpp:197
+[DEBUG] Instrumentation for 2017-15265.cpp:181
+[DEBUG] Instrumentation for 2017-15265.cpp:160
+[DEBUG] Instrumentation for 2017-15265.cpp:69
+[DEBUG] Instrumentation for 2017-15265.cpp:70
+[DEBUG] Instrumentation for 2017-15265.cpp:92
++ cd /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346
++ ./cleanDIR.sh
++ clang -g -emit-llvm -c ./2017-6346.cpp -o 2017-6346.bc
++ /workdir/PERIOD/tool/staticAnalysis/staticAnalysis.sh 2017-6346
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.2017-6346
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  40K Nov 14 08:25 2017-6346.bc
+-rw-rw-r-- 1 root root 3.7K Jan 16  2022 2017-6346.cpp
+-rw-r--r-- 1 root root  174 Nov 14 08:25 ConConfig.2017-6346
+-rw-r--r-- 1 root root  881 Nov 14 08:25 mempair.2017-6346
+-rw-r--r-- 1 root root  12K Nov 14 08:25 mempair.2017-6346.npz
+-rw-r--r-- 1 root root 3.7K Nov 14 08:25 mssa.2017-6346
+-rw-r--r-- 1 root root 3.7K Nov 14 08:25 so.2017-6346
+/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346
++ export Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346/ConConfig.2017-6346
++ Con_PATH=/workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346/ConConfig.2017-6346
++ /workdir/PERIOD/tool/staticAnalysis/DBDS-INSTRU/dbds-clang-fast++ -g -fsanitize=address ./2017-6346.cpp -o 2017-6346 -lpthread -ldl
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346/ConConfig.2017-6346
+[DEBUG]
+[DEBUG] Instrumentation for 2017-6346.cpp:124
+[DEBUG] Instrumentation for 2017-6346.cpp:94
+[DEBUG] Instrumentation for 2017-6346.cpp:95
+[DEBUG] Instrumentation for 2017-6346.cpp:97
+[DEBUG] Instrumentation for 2017-6346.cpp:99
+[DEBUG] Instrumentation for 2017-6346.cpp:104
+[DEBUG] Instrumentation for 2017-6346.cpp:109
+[DEBUG] Instrumentation for 2017-6346.cpp:112
+[DEBUG] Instrumentation for 2017-6346.cpp:67
+[DEBUG] Instrumentation for 2017-6346.cpp:76
