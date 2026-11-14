@@ -97,7 +97,10 @@ Total Error Interleavings: 4
 Total Timeouts Interleavings: 0
 ```
 
-## 5. C1 — CVE benchmark (paper Table 1)
+## 5.claim
+
+
+claim 2： CVE benchmark (paper Table 1)
 
 **Reproduce** — the exact commands we ran (see `logs/cve/build_all.log` and `logs/cve/CVE-2009-3547_d5_run1.log`):
 
