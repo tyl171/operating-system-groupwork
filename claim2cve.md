@@ -1,4 +1,4 @@
-Claim 1 — Period detects all 10 buggy programs in the CVE benchmark (Table 1)
+Claim 2 — Period detects all 10 buggy programs in the CVE benchmark (Table 1)
 
 Table 1 in the original paper: ![alt text](logs/table1.png)
 
