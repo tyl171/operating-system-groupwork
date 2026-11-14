@@ -97,8 +97,20 @@ Total Error Interleavings: 4
 Total Timeouts Interleavings: 0
 ```
 
-> `[Error Found]` lines are the expected result, not failures — PERIOD is a
-> bug-finding tool and `test/doubleFree` intentionally contains a double-free bug.
+## 5. C1 — CVE benchmark (paper Table 1)
 
----
+**Reproduce** — the exact commands we ran (see `logs/cve/build_all.log` and `logs/cve/CVE-2009-3547_d5_run1.log`):
 
+```bash
+sudo docker start period          # or: docker run --privileged -it period:latest /bin/bash
+
+cd $ROOT_DIR/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547
+./cleanDIR.sh
+clang++ -g -emit-llvm -c ./2009-3547.cpp -o 2009-3547.bc
+$ROOT_DIR/tool/staticAnalysis/staticAnalysis.sh 2009-3547
+$ROOT_DIR/tool/DBDS/run_PDS.py -y -d 5 ./2009-3547
+```
+
+Upstream instructions: <https://github.com/wcventure/PERIOD>
+
+The process and results of reproducing this experiment: [claim2cve.md](claim2cve.md)
