@@ -56,3 +56,9 @@ Limitations. Two of the 36 SCTBench programs are covered here, both from the
 `Inspect` group; the remaining families (CB, CS, Chess, RADBench, SafeStack,
 Splash2) are not attempted. We ran three repetitions per program where the paper
 uses ten, and the testbed has fewer cores than the paper's workstation.
+
+Runtime. On our testbed one qsort_mt run takes about 6 minutes and one
+boundedBuffer run about 7 minutes (boundedBuffer carries a longer per-schedule
+cost because the assertion has to be reached inside the buffer logic). Including
+the aborted dry-run attempt and the rebuilds, producing three runs of each
+program took 46 minutes in total.
