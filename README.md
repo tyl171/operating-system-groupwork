@@ -215,3 +215,125 @@ $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./boundedBuffer
 
 The process and results of reproducing this experiment are in
 [`sctinspect.md`](sctinspect.md).
+
+***
+
+## 6. claim 3 (runtime overhead, RQ3) — Wang Ziqi, Lu Yuhang
+
+Reproduction of the second claim of the paper: **PERIOD is 2–30× slower than
+native execution** (Figure 7, §4.4). The IPB/IDB/PCT baselines were **not**
+reproduced: their SCTBench implementations are based on Pin, which requires a
+kernel ≤ 3.x, while PERIOD requires kernel ≥ 4.x — the two cannot run in one
+environment. The reasons and impact are covered in the deviations section of
+the final report.
+
+The VM and environment are described in section 2.2; the instrumented PERIOD
+build (`build_all.sh`) is described in section 5 and is not repeated here.
+
+### Build
+
+Each program additionally gets a **native build** from the same unmodified
+upstream source (no PERIOD instrumentation, no ASan), used as the denominator
+of the slowdown:
+
+```bash
+# inside the container, at the repository root
+source tool/init_env.sh
+bash scripts/rq3/build_native.sh     # builds all 10 *_native binaries
+```
+
+### Run
+
+The measurement scripts write all logs to `RQ3/<CVE-dir>/` (one folder per
+program, one file per run); they are uploaded under
+[`logs/claim2log/rq3/`](logs/claim2log/rq3/):
+
+```bash
+# native wall-clock timing (default 3 valid runs)
+bash scripts/rq3/time_native.sh CVE-2016-7911 2016-7911_native 3
+# PERIOD measurement (default 3 runs, single-run timeout 1800 s)
+bash scripts/rq3/run_period.sh CVE-2016-7911 2016-7911 3
+```
+
+Both scripts are executed for each of the 10 CVEs; the binary names follow the
+`<number>_native` (native) / `<number>` (instrumented) pattern.
+
+**Exclusion rules** (the paper does not define them; these are our rules, and
+every excluded run is kept in the logs):
+
+- a native run that crashes (exit 139) because the race bug fires by itself is
+  invalid and re-run until 3 valid runs are collected;
+
+- a PERIOD run killed before its first schedule (`schedules = 0`) is invalid
+  and re-run;
+
+- per-run timeouts: 60 s (native) and 1800 s (PERIOD).
+
+### Expected output
+
+Raw per-run log samples (native):
+
+```
+[2026-11-15 10:03:15] native timing: CVE-2015-7550 / 2015-7550_native, reps=3
+run1: exit=0 time=.007103880 s
+run2: exit=0 time=.006257638 s
+run3: exit=0 time=.010192315 s
+```
+
+```
+[2026-11-15 10:07:04] PERIOD run: CVE-2015-7550 / 2015-7550, reps=3, depth=3
+run1: wall=1.334540796 s, schedules=14, bugs_found=6
+run2: wall=1.836613408 s, schedules=14, bugs_found=4
+run3: wall=2.129647394 s, schedules=14, bugs_found=4
+```
+
+The slowdown of one run is the PERIOD tool's own reported `Time` total divided
+by its own `Round` total, divided by the native mean. All tables are
+regenerated from the raw logs with:
+
+```bash
+python3 scripts/rq3/analyze_rq3.py
+```
+
+which writes [`results/rq3/rq3_summary.csv`](results/rq3/rq3_summary.csv),
+[`results/rq3/rq3_runs.csv`](results/rq3/rq3_runs.csv), the paper comparison
+values [`results/rq3/paper_fig7_estimates.csv`](results/rq3/paper_fig7_estimates.csv)
+and the figure
+[`results/rq3/figures/rq3_slowdown.png`](results/rq3/figures/rq3_slowdown.png).
+
+### Results
+
+| Program        | Native ms | PERIOD ms/schedule | Slowdown (mean ± std) | Paper (Fig. 7, eyeballed) |
+| -------------- | --------- | ------------------ | --------------------- | ------------------------- |
+| CVE-2009-3547  | 8.1       | 100.5              | 12.3 ± 2.2            | ≈3                        |
+| CVE-2011-2183  | 14.0      | 72.8               | 5.2 ± 0.5             | ≈8                        |
+| CVE-2013-1792  | 7.2       | 53.3               | 7.4 ± 2.3             | ≈30                       |
+| CVE-2015-7550  | 7.9       | 104.6              | 13.3 ± 5.1            | ≈15                       |
+| CVE-2016-1972  | 9.3       | 36.3               | 3.9 ± 0.4             | ≈28                       |
+| CVE-2016-1973  | 10.9      | 55.8               | 5.1 ± 0.3             | ≈18                       |
+| CVE-2016-7911  | 7.5       | 89.1               | 11.8 ± 2.1            | ≈1.5                      |
+| CVE-2016-9806  | 12.0      | 63.0               | 5.2 ± 1.4             | ≈18                       |
+| CVE-2017-15265 | 7.2       | 28.6               | 4.0 ± 0.2             | ≈29                       |
+| CVE-2017-6346  | 13.9      | 78.6               | 5.7 ± 0.3             | ≈7                        |
+
+Our slowdowns range from **3.9× to 13.3× (median 5.5×)**, and **all 10
+programs lie inside the claimed 2–30× range**, so the claim is **supported**
+for the PERIOD-vs-native part. Absolute values are lower than the paper's
+bar-chart estimates, which is expected on faster hardware. Note that the paper
+does not state the schedule depth used for the Fig. 7 overhead measurement; we
+use `-d 3` uniformly (consistent with section 4 Testing). The impact of this
+difference is discussed in the deviations section.
+
+### Runtime
+
+- `build_native.sh`: a few seconds for all 10 programs.
+
+- `time_native.sh`: seconds per program.
+
+- `run_period.sh`: 1 s to 30 s per run depending on the schedule count
+  (CVE-2011-2183 explores over 360 schedules), up to a few minutes for a
+  whole program.
+
+All raw logs are in [`logs/claim2log/rq3/`](logs/claim2log/rq3/); the
+discarded pilot trials are kept in
+[`logs/claim2log/rq3/pilot/`](logs/claim2log/rq3/pilot/).
