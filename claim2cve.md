@@ -1,6 +1,6 @@
 Claim 2 — Period detects all 10 buggy programs in the CVE benchmark (Table 1)
 
-Table 1 in the original paper: ![alt text](logs/table1.png)
+Table 1 in the original paper: ![alt text](logs/claim2log/table1.png)
 
 Verdict: supported.
 
@@ -10,7 +10,7 @@ CCT technique and 3/10 for native execution, so Period saturates the theoretical
 
 Quantified gap.
 
-![alt text](logs/mydata.png)
+![alt text](logs/claim2log/mydata.png)
 
 the number of schedules explored matches the paper “exactly in
 6 of 10 programs on the mean” and “in 8 of 10 programs in at least one run”;

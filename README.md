@@ -85,7 +85,8 @@ Short version:
 ```bash
 sudo docker run --privileged -it period:latest /bin/bash
 # inside the container:
-cd /workdir/PERIOD/test/doubleFree
+source /workdir/PERIOD/tool/init_env.sh
+cd $ROOT_DIR/test/doubleFree
 ./cleanDIR.sh && ./build.sh
 $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 ./df
 ```
@@ -100,20 +101,88 @@ Total Timeouts Interleavings: 0
 ## 5.claim
 
 
-claim 2： CVE benchmark (paper Table 1)
 
-**Reproduce** — the exact commands we ran (see `logs/cve/build_all.log` and `logs/cve/CVE-2009-3547_d5_run1.log`):
+claim 2
+
+### Build
+
+All ten programs are built with the upstream batch script. This is the exact
+sequence recorded in [`logs/claim2log/cve/build_all.log`](logs/claim2log/cve/build_all.log):
 
 ```bash
-sudo docker start period          # or: docker run --privileged -it period:latest /bin/bash
+# inside the container, at the repository root
+cd /workdir/PERIOD
+source tool/init_env.sh
 
+# compile all ten ConVul-CVE-Benchmarks programs
+cd $ROOT_DIR/evaluation/ConVul-CVE-Benchmarks
+./build_all.sh
+```
+
+`build_all.sh` runs `cleanDIR.sh`, the LLVM bitcode step, `staticAnalysis.sh`
+and the DBDS instrumentation for each program. It takes about 3 minutes.
+
+### Run
+
+Schedule depth `-d 5` and `-y` (skip the interactive prompt) are the settings
+used for this benchmark throughout the paper. The binary name is the directory
+name without the `CVE-` prefix:
+
+```bash
 cd $ROOT_DIR/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547
-./cleanDIR.sh
-clang++ -g -emit-llvm -c ./2009-3547.cpp -o 2009-3547.bc
-$ROOT_DIR/tool/staticAnalysis/staticAnalysis.sh 2009-3547
 $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 5 ./2009-3547
 ```
 
-Upstream instructions: <https://github.com/wcventure/PERIOD>
+| Program | Binary |
+|---|---|
+| CVE-2009-3547 | `2009-3547` |
+| CVE-2011-2183 | `2011-2183` |
+| CVE-2013-1792 | `2013-1792` |
+| CVE-2015-7550 | `2015-7550` |
+| CVE-2016-1972 | `2016-1972` |
+| CVE-2016-1973 | `2016-1973` |
+| CVE-2016-7911 | `2016-7911` |
+| CVE-2016-9806 | `2016-9806` |
+| CVE-2017-6346 | `2017-6346` |
+| CVE-2017-15265 | `2017-15265` |
 
-The process and results of reproducing this experiment: [claim2cve.md](claim2cve.md)
+### Expected output
+
+Every program ends with a summary block; `Total Error Interleavings` must be
+greater than zero, otherwise PERIOD did not detect the bug:
+
+```
+End Testing!
+
+Total Error Interleavings: 3
+Total Timeouts Interleavings: 0
+```
+
+For CVE-2009-3547 we get 3 error interleavings on every run; the per-program
+numbers we measured are in [`claim2cve.md`](claim2cve.md).
+
+### Runtime
+
+- `./build_all.sh`: about 3 minutes.
+
+Measure with `/usr/bin/time -f "%e s" $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 5 ./2009-3547`
+if you need to re-measure on another machine.
+
+The process and results of reproducing this experiment are in
+[`claim2cve.md`](claim2cve.md).
+
+Upstream per-program instructions:
+[CVE-2009-3547](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2009-3547) ·
+[CVE-2011-2183](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2011-2183) ·
+[CVE-2013-1792](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2013-1792) ·
+[CVE-2015-7550](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2015-7550) ·
+[CVE-2016-1972](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1972) ·
+[CVE-2016-1973](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2016-1973) ·
+[CVE-2016-7911](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2016-7911) ·
+[CVE-2016-9806](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2016-9806) ·
+[CVE-2017-6346](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2017-6346) ·
+[CVE-2017-15265](https://github.com/wcventure/PERIOD/tree/main/evaluation/ConVul-CVE-Benchmarks/CVE-2017-15265)
+
+These commands are adapted from the upstream
+[README](https://github.com/wcventure/PERIOD); the upstream source is used
+unmodified.
