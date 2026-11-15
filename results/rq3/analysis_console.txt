@@ -1,0 +1,15 @@
+program           nat ms valid    rounds  ms/sched      slowdown  paper~
+CVE-2009-3547       8.14 10/10         6     100.5   12.3+-2.2       3.0
+CVE-2011-2183      13.98  3/3    367-381      72.8    5.2+-0.5       8.0
+CVE-2013-1792       7.25  8/10    70-126      53.3    7.4+-2.3      30.0
+CVE-2015-7550       7.85  3/3         14     104.6   13.3+-5.1      15.0
+CVE-2016-1972       9.33  3/3     82-134      36.3    3.9+-0.4      28.0
+CVE-2016-1973      10.89  3/3      24-46      55.8    5.1+-0.3      18.0
+CVE-2016-7911       7.54  8/10        19      89.1   11.8+-2.1       1.5
+CVE-2016-9806      12.00  3/3         42      63.0    5.2+-1.4      18.0
+CVE-2017-15265      7.24  3/5         96      28.6    4.0+-0.2      29.0
+CVE-2017-6346      13.90  3/3        182      78.6    5.7+-0.3       7.0
+
+range of ours: 3.9x - 13.3x ; median 5.5x ; within 2-30x: 10/10
+Spearman rank correlation (paper estimate vs ours, per program): -0.53
+figure written: results/rq3/figures/rq3_slowdown.png

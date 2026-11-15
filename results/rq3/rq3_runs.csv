@@ -1,0 +1,105 @@
+program,tool,run,wall_s,schedules_round_total,period_s_per_schedule,slowdown_x,log_file,status
+CVE-2009-3547,native,1,0.008582,,,,,valid
+CVE-2009-3547,native,2,0.102520,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2009-3547,native,3,0.100699,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2009-3547,native,4,0.007843,,,,,valid
+CVE-2009-3547,native,5,0.011893,,,,,valid
+CVE-2009-3547,native,6,0.092849,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2009-3547,native,7,0.094966,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2009-3547,native,8,0.006784,,,,,valid
+CVE-2009-3547,native,9,0.091093,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2009-3547,native,10,0.005606,,,,,valid
+CVE-2009-3547,period,1,0.876244,6,0.129165,15.86,logs/rq3/CVE-2009-3547/period_run1.log,valid
+CVE-2009-3547,period,2,0.844134,6,0.122415,15.04,logs/rq3/CVE-2009-3547/period_run2.log,valid
+CVE-2009-3547,period,3,0.767791,6,0.109768,13.48,logs/rq3/CVE-2009-3547/period_run3.log,valid
+CVE-2009-3547,period,4,0.788249,6,0.113607,13.95,logs/rq3/CVE-2009-3547/period_run4.log,valid
+CVE-2009-3547,period,5,0.666283,6,0.092715,11.39,logs/rq3/CVE-2009-3547/period_run5.log,valid
+CVE-2009-3547,period,6,0.650693,6,0.090748,11.15,logs/rq3/CVE-2009-3547/period_run6.log,valid
+CVE-2009-3547,period,7,0.615789,6,0.086062,10.57,logs/rq3/CVE-2009-3547/period_run7.log,valid
+CVE-2009-3547,period,8,0.653551,6,0.091922,11.29,logs/rq3/CVE-2009-3547/period_run8.log,valid
+CVE-2009-3547,period,9,0.679528,6,0.096590,11.86,logs/rq3/CVE-2009-3547/period_run9.log,valid
+CVE-2009-3547,period,10,0.534247,6,0.072145,8.86,logs/rq3/CVE-2009-3547/period_run10.log,valid
+CVE-2011-2183,native,1,0.022667,,,,,valid
+CVE-2011-2183,native,2,0.012307,,,,,valid
+CVE-2011-2183,native,3,0.006955,,,,,valid
+CVE-2011-2183,period,1,25.568185,367,0.069390,4.96,logs/rq3/CVE-2011-2183/period_run1.log,valid
+CVE-2011-2183,period,2,25.833657,381,0.067532,4.83,logs/rq3/CVE-2011-2183/period_run2.log,valid
+CVE-2011-2183,period,3,29.963066,367,0.081339,5.82,logs/rq3/CVE-2011-2183/period_run3.log,valid
+CVE-2013-1792,native,1,0.007634,,,,,valid
+CVE-2013-1792,native,2,0.009720,,,,,valid
+CVE-2013-1792,native,3,0.006012,,,,,valid
+CVE-2013-1792,native,4,0.007752,,,,,valid
+CVE-2013-1792,native,5,0.006875,,,,,valid
+CVE-2013-1792,native,6,0.006115,,,,,valid
+CVE-2013-1792,native,7,0.007220,,,,,valid
+CVE-2013-1792,native,8,0.005633,,,,,valid
+CVE-2013-1792,native,9,0.008548,,,,,valid
+CVE-2013-1792,native,10,0.006964,,,,,valid
+CVE-2013-1792,period,1,6.023142,126,0.046828,6.46,logs/rq3/CVE-2013-1792/period_run1.log,valid
+CVE-2013-1792,period,2,3.000148,71,0.040604,5.60,logs/rq3/CVE-2013-1792/period_run2.log,valid
+CVE-2013-1792,period,3,4.225960,70,0.058838,8.12,logs/rq3/CVE-2013-1792/period_run3.log,valid
+CVE-2013-1792,period,4,91.343337,71,1.284847,177.29,logs/rq3/CVE-2013-1792/period_run4.log,excluded: contains 1 timeout interleaving(s)
+CVE-2013-1792,period,5,4.432591,71,0.060665,8.37,logs/rq3/CVE-2013-1792/period_run5.log,valid
+CVE-2013-1792,period,6,175.975315,68,2.585299,356.73,logs/rq3/CVE-2013-1792/period_run6.log,excluded: contains 1 timeout interleaving(s)
+CVE-2013-1792,period,7,3.402371,94,0.034712,4.79,logs/rq3/CVE-2013-1792/period_run7.log,valid
+CVE-2013-1792,period,8,5.007016,77,0.063008,8.69,logs/rq3/CVE-2013-1792/period_run8.log,valid
+CVE-2013-1792,period,9,6.087579,71,0.084035,11.60,logs/rq3/CVE-2013-1792/period_run9.log,valid
+CVE-2013-1792,period,10,2.806108,71,0.037992,5.24,logs/rq3/CVE-2013-1792/period_run10.log,valid
+CVE-2015-7550,native,1,0.007104,,,,,valid
+CVE-2015-7550,native,2,0.006258,,,,,valid
+CVE-2015-7550,native,3,0.010192,,,,,valid
+CVE-2015-7550,period,1,1.014028,14,0.063751,8.12,logs/rq3/CVE-2015-7550/period_run1.log,valid
+CVE-2015-7550,period,2,1.599509,14,0.106484,13.56,logs/rq3/CVE-2015-7550/period_run2.log,valid
+CVE-2015-7550,period,3,2.129647,14,0.143621,18.29,logs/rq3/CVE-2015-7550/period_run3.log,valid
+CVE-2016-1972,native,1,0.014792,,,,,valid
+CVE-2016-1972,native,2,0.006300,,,,,valid
+CVE-2016-1972,native,3,0.006905,,,,,valid
+CVE-2016-1972,period,1,5.357712,134,0.039191,4.20,logs/rq3/CVE-2016-1972/period_run1.log,valid
+CVE-2016-1972,period,2,3.719804,96,0.037649,4.03,logs/rq3/CVE-2016-1972/period_run2.log,valid
+CVE-2016-1972,period,3,2.752789,82,0.032190,3.45,logs/rq3/CVE-2016-1972/period_run3.log,valid
+CVE-2016-1973,native,1,0.016690,,,,,valid
+CVE-2016-1973,native,2,0.008160,,,,,valid
+CVE-2016-1973,native,3,0.007834,,,,,valid
+CVE-2016-1973,period,1,2.682492,46,0.055775,5.12,logs/rq3/CVE-2016-1973/period_run1.log,valid
+CVE-2016-1973,period,2,1.531088,24,0.058755,5.39,logs/rq3/CVE-2016-1973/period_run2.log,valid
+CVE-2016-1973,period,3,1.378342,24,0.052757,4.84,logs/rq3/CVE-2016-1973/period_run3.log,valid
+CVE-2016-7911,native,1,0.007326,,,,,valid
+CVE-2016-7911,native,2,0.007290,,,,,valid
+CVE-2016-7911,native,3,0.010819,,,,,valid
+CVE-2016-7911,native,4,0.007338,,,,,valid
+CVE-2016-7911,native,5,0.097505,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2016-7911,native,6,0.101621,,,,,excluded: exit code 139 (crash caused by the bug)
+CVE-2016-7911,native,7,0.008843,,,,,valid
+CVE-2016-7911,native,8,0.006044,,,,,valid
+CVE-2016-7911,native,9,0.006454,,,,,valid
+CVE-2016-7911,native,10,0.006177,,,,,valid
+CVE-2016-7911,period,1,0.202119,,,,logs/rq3/CVE-2016-7911/period_run1.log,excluded: no Round summary (0 schedules executed)
+CVE-2016-7911,period,2,0.193250,,,,logs/rq3/CVE-2016-7911/period_run2.log,excluded: no Round summary (0 schedules executed)
+CVE-2016-7911,period,3,1.511861,19,0.074274,9.86,logs/rq3/CVE-2016-7911/period_run3.log,valid
+CVE-2016-7911,period,4,1.625729,19,0.080266,10.65,logs/rq3/CVE-2016-7911/period_run4.log,valid
+CVE-2016-7911,period,5,1.972199,19,0.098534,13.07,logs/rq3/CVE-2016-7911/period_run5.log,valid
+CVE-2016-7911,period,6,1.691894,19,0.082648,10.97,logs/rq3/CVE-2016-7911/period_run6.log,valid
+CVE-2016-7911,period,7,2.448825,19,0.122754,16.29,logs/rq3/CVE-2016-7911/period_run7.log,valid
+CVE-2016-7911,period,8,1.530292,19,0.074842,9.93,logs/rq3/CVE-2016-7911/period_run8.log,valid
+CVE-2016-7911,period,9,1.880400,19,0.093283,12.38,logs/rq3/CVE-2016-7911/period_run9.log,valid
+CVE-2016-7911,period,10,1.734163,19,0.085892,11.40,logs/rq3/CVE-2016-7911/period_run10.log,valid
+CVE-2016-9806,native,1,0.019959,,,,,valid
+CVE-2016-9806,native,2,0.007464,,,,,valid
+CVE-2016-9806,native,3,0.008578,,,,,valid
+CVE-2016-9806,period,1,2.243268,42,0.050644,4.22,logs/rq3/CVE-2016-9806/period_run1.log,valid
+CVE-2016-9806,period,2,2.459662,42,0.055845,4.65,logs/rq3/CVE-2016-9806/period_run2.log,valid
+CVE-2016-9806,period,3,3.570771,42,0.082436,6.87,logs/rq3/CVE-2016-9806/period_run3.log,valid
+CVE-2017-15265,native,1,0.007121,,,,,valid
+CVE-2017-15265,native,2,0.007677,,,,,valid
+CVE-2017-15265,native,3,0.006924,,,,,valid
+CVE-2017-15265,period,1,2.757481,96,0.027612,3.81,logs/rq3/CVE-2017-15265/period_run1.log,valid
+CVE-2017-15265,period,2,0.214990,,,,logs/rq3/CVE-2017-15265/period_run2.log,excluded: no Round summary (0 schedules executed)
+CVE-2017-15265,period,3,2.828564,96,0.028385,3.92,logs/rq3/CVE-2017-15265/period_run3.log,valid
+CVE-2017-15265,period,4,0.202279,,,,logs/rq3/CVE-2017-15265/period_run4.log,excluded: no Round summary (0 schedules executed)
+CVE-2017-15265,period,5,2.970552,96,0.029808,4.12,logs/rq3/CVE-2017-15265/period_run5.log,valid
+CVE-2017-6346,native,1,0.023909,,,,,valid
+CVE-2017-6346,native,2,0.008790,,,,,valid
+CVE-2017-6346,native,3,0.008990,,,,,valid
+CVE-2017-6346,period,1,13.794612,182,0.075225,5.41,logs/rq3/CVE-2017-6346/period_run1.log,valid
+CVE-2017-6346,period,2,15.328545,182,0.083503,6.01,logs/rq3/CVE-2017-6346/period_run2.log,valid
+CVE-2017-6346,period,3,14.122879,182,0.076941,5.54,logs/rq3/CVE-2017-6346/period_run3.log,valid

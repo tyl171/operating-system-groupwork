@@ -1,0 +1,11 @@
+program,paper_period_slowdown_est,note
+CVE-2009-3547,3,read by eye from the bar chart in Fig. 7 (ICSE 2022); error about +-2x; replace with values extracted from the vector PDF
+CVE-2011-2183,8,same
+CVE-2013-1792,30,same
+CVE-2015-7550,15,same
+CVE-2016-1972,28,same
+CVE-2016-1973,18,same
+CVE-2016-7911,1.5,same
+CVE-2016-9806,18,same
+CVE-2017-15265,29,same
+CVE-2017-6346,7,same
