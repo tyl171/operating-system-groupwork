@@ -186,3 +186,32 @@ Upstream per-program instructions:
 These commands are adapted from the upstream
 [README](https://github.com/wcventure/PERIOD); the upstream source is used
 unmodified.
+
+
+## Inspect subset (paper Table 2)
+
+### Build
+
+Both programs live under `$ROOT_DIR/evaluation/Inspect_benchmarks/`. Build with
+the per-program script:
+
+```bash
+cd $ROOT_DIR/evaluation/Inspect_benchmarks/qsort_mt
+./cleanDIR.sh && ./build.sh
+
+cd $ROOT_DIR/evaluation/Inspect_benchmarks/boundedBuffer
+./cleanDIR.sh && ./build.sh
+```
+
+### Run
+
+```bash
+cd $ROOT_DIR/evaluation/Inspect_benchmarks/qsort_mt
+$ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./qsort_mt -n 32 -f 4 -h 3 -v
+
+cd $ROOT_DIR/evaluation/Inspect_benchmarks/boundedBuffer
+$ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./boundedBuffer
+```
+
+The process and results of reproducing this experiment are in
+[`sctinspect.md`](sctinspect.md).

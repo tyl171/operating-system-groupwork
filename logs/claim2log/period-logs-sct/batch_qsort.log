@@ -1,0 +1,84 @@
+nohup: ignoring input
+./qsort_mt.c:567:5: warning: implicit declaration of function 'warnx' is invalid in C99 [-Wimplicit-function-declaration]
+                                warnx("illegal number, -f argument -- %s",
+                                ^
+./qsort_mt.c:575:5: warning: implicit declaration of function 'warnx' is invalid in C99 [-Wimplicit-function-declaration]
+                                warnx("illegal number, -h argument -- %s",
+                                ^
+./qsort_mt.c:586:5: warning: implicit declaration of function 'warnx' is invalid in C99 [-Wimplicit-function-declaration]
+                                warnx("illegal number, -n argument -- %s",
+                                ^
+./qsort_mt.c:615:8: warning: implicit declaration of function 'asprintf' is invalid in C99 [-Wimplicit-function-declaration]
+                        if (asprintf(&str_elem[i], "%d%d", rand(), rand()) == -1) {
+                            ^
+4 warnings generated.
+[*] Making static analysis directory
+[*] DIR: /workdir/PERIOD/evaluation/Inspect_benchmarks/qsort_mt
+[*] ROOT_DIR: /workdir/PERIOD
+[*] Generating mssa.qsort_mt
+[*] Change format for instrumentation
+[*] Analyze Sensitive Memory Operations
+[*] Update Memory Group with Sensitive Memory Operations
+[*] Dumps mempairs and save it into .npz file
+-rw-r--r-- 1 root root  570 Nov 15 10:53 ConConfig.qsort_mt
+-rw-r--r-- 1 root root 9.0K Nov 15 10:53 mempair.qsort_mt
+-rw-r--r-- 1 root root  77K Nov 15 10:53 mempair.qsort_mt.npz
+-rw-r--r-- 1 root root  12K Nov 15 10:53 mssa.qsort_mt
+-rw-r--r-- 1 root root  46K Nov 15 10:53 qsort_mt.bc
+-rw-rw-r-- 1 root root  17K Jan 16  2022 qsort_mt.c
+-rw-r--r-- 1 root root  21K Nov 15 10:53 so.qsort_mt
+/workdir/PERIOD/evaluation/Inspect_benchmarks/qsort_mt
+[DEBUG] The ConConfig file was successfully opened.
+[DEBUG] The file is /workdir/PERIOD/evaluation/Inspect_benchmarks/qsort_mt/ConConfig.qsort_mt
+[DEBUG]
+[DEBUG] Instrumentation for qsort_mt.c:464
+[DEBUG] Instrumentation for qsort_mt.c:465
+[DEBUG] Instrumentation for qsort_mt.c:469
+[DEBUG] Instrumentation for qsort_mt.c:470
+[DEBUG] Instrumentation for qsort_mt.c:471
+[DEBUG] Instrumentation for qsort_mt.c:470
+[DEBUG] Instrumentation for qsort_mt.c:473
+[DEBUG] Instrumentation for qsort_mt.c:477
+[DEBUG] Instrumentation for qsort_mt.c:481
+[DEBUG] Instrumentation for qsort_mt.c:482
+[DEBUG] Instrumentation for qsort_mt.c:483
+[DEBUG] Instrumentation for qsort_mt.c:485
+[DEBUG] Instrumentation for qsort_mt.c:487
+[DEBUG] Instrumentation for qsort_mt.c:488
+[DEBUG] Instrumentation for qsort_mt.c:491
+[DEBUG] Instrumentation for qsort_mt.c:492
+[DEBUG] Instrumentation for qsort_mt.c:493
+[DEBUG] Instrumentation for qsort_mt.c:487
+[DEBUG] Instrumentation for qsort_mt.c:348
+[DEBUG] Instrumentation for qsort_mt.c:349
+[DEBUG] Instrumentation for qsort_mt.c:350
+[DEBUG] Instrumentation for qsort_mt.c:351
+[DEBUG] Instrumentation for qsort_mt.c:352
+[DEBUG] Instrumentation for qsort_mt.c:353
+[DEBUG] Instrumentation for qsort_mt.c:354
+[DEBUG] Instrumentation for qsort_mt.c:370
+[DEBUG] Instrumentation for qsort_mt.c:370
+[DEBUG] Instrumentation for qsort_mt.c:370
+[DEBUG] Instrumentation for qsort_mt.c:418
+[DEBUG] Instrumentation for qsort_mt.c:418
+[DEBUG] Instrumentation for qsort_mt.c:418
+[DEBUG] Instrumentation for qsort_mt.c:433
+[DEBUG] Instrumentation for qsort_mt.c:433
+[DEBUG] Instrumentation for qsort_mt.c:436
+[DEBUG] Instrumentation for qsort_mt.c:437
+[DEBUG] Instrumentation for qsort_mt.c:438
+[DEBUG] Instrumentation for qsort_mt.c:442
+[DEBUG] Instrumentation for qsort_mt.c:443
+[DEBUG] Instrumentation for qsort_mt.c:320
+[DEBUG] Instrumentation for qsort_mt.c:321
+[DEBUG] Instrumentation for qsort_mt.c:322
+[DEBUG] Instrumentation for qsort_mt.c:323
+[DEBUG] Instrumentation for qsort_mt.c:324
+[DEBUG] Instrumentation for qsort_mt.c:325
+[DEBUG] Instrumentation for qsort_mt.c:327
+[DEBUG] Instrumentation for qsort_mt.c:322
+[DEBUG] Instrumentation for qsort_mt.c:321
+run1 OK | Total Error Interleavings: 141 | Round	0			10081
+run2 OK | Total Error Interleavings: 137 | Round	0			10064
+run3 OK | Total Error Interleavings: 148 | Round	0			10075
+ALL_DONE
