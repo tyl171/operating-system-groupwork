@@ -218,7 +218,7 @@ The process and results of reproducing this experiment are in
 
 ***
 
-## 6. claim 3 (runtime overhead, RQ3) — Wang Ziqi, Lu Yuhang
+## 6. claim 3 (runtime overhead, RQ3)
 
 Reproduction of the second claim of the paper: **PERIOD is 2–30× slower than
 native execution** (Figure 7, §4.4). The IPB/IDB/PCT baselines were **not**
