@@ -98,11 +98,10 @@ Total Error Interleavings: 4
 Total Timeouts Interleavings: 0
 ```
 
-## 5.claim
+## 5.claim2
 
 
 
-claim 2
 
 ### Build
 
@@ -211,6 +210,36 @@ $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./qsort_mt -n 32 -f 4 -h 3 -v
 
 cd $ROOT_DIR/evaluation/Inspect_benchmarks/boundedBuffer
 $ROOT_DIR/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./boundedBuffer
+```
+You can also use the simplified code I created using AI. 
+The advantage is that you can run it three times in one go, 
+and the logs will be stored in the virtual machine. 
+When you exit the container, the logs will not disappear
+
+```bash
+  mkdir -p /root/period-logs-cores
+  cd $ROOT_DIR/evaluation/Inspect_benchmarks/boundedBuffer
+  for i in 1 2 3; do
+    log=/root/period-logs-cores/boundedBuffer_vm2_run$i.log
+    t0=$(date +%s)
+    /workdir/PERIOD/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./boundedBuffer > $log 2>&1
+    t1=$(date +%s)
+    echo "vm2 run$i | $(grep -ah 'Total Error' $log|head -1) | $(grep -ah '^Round' $log|head -1) | wall=$((t1-t0))s"
+  done
+```
+
+
+```bash
+mkdir -p /root/period-logs-cores
+cd $ROOT_DIR/evaluation/Inspect_benchmarks/qsort_mt
+
+for i in 1 2 3; do
+  log=/root/period-logs-cores/qsort_mt_vm2_run$i.log
+  t0=$(date +%s)
+  /workdir/PERIOD/tool/DBDS/run_PDS.py -y -d 3 -f 10000 ./qsort_mt -n 32 -f 4 -h 3 -v > $log 2>&1
+  t1=$(date +%s)
+  echo "vm2 qs run$i | $(grep -ah 'Total Error' $log|head -1) | $(grep -ah '^Round' $log|head -1) | wall=$((t1-t0))s"
+done
 ```
 
 The process and results of reproducing this experiment are in
@@ -337,3 +366,20 @@ difference is discussed in the deviations section.
 All raw logs are in [`logs/claim2log/rq3/`](logs/claim2log/rq3/); the
 discarded pilot trials are kept in
 [`logs/claim2log/rq3/pilot/`](logs/claim2log/rq3/pilot/).
+
+
+
+
+
+## 7. Extension — CPU core count (claim 2)
+
+We re-ran two of the SCTBench programs with a different number of CPU cores,
+keeping everything else unchanged. The original runs used 8 cores; we repeated
+`Inspect.qsort_mt` and `Inspect.boundedBuffer` on 2 and 4 cores with the same
+command line (`-y -d 3 -f 10000`, three runs per setting) and the same steps.
+
+![core sweep](results/extension/cores.png)
+
+The per-run measurements are in
+[`results/extension/cores.csv`](results/extension/cores.csv), and the analysis is
+written up in [`claim2extension.md`](claim2extension.md).
