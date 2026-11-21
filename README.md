@@ -378,7 +378,6 @@ keeping everything else unchanged. The original runs used 8 cores; we repeated
 `Inspect.qsort_mt` and `Inspect.boundedBuffer` on 2 and 4 cores with the same
 command line (`-y -d 3 -f 10000`, three runs per setting) and the same steps.
 
-![core sweep](results/extension/cores.png)
 
 The per-run measurements are in
 [`results/extension/cores.csv`](results/extension/cores.csv), and the analysis is
